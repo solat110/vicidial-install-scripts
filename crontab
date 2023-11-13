@@ -54,7 +54,7 @@
 #32 0 * * * /usr/share/astguiclient/AST_VDsales_export.pl
 #42 0 * * * /usr/share/astguiclient/AST_sourceID_summary_export.pl
 ### remove old recordings more than 7 days old
-#24 0 * * * /usr/bin/find /var/spool/asterisk/monitorDONE -maxdepth 2 -type f -mtime +7 -print | xargs rm -f
+24 0 * * * /usr/bin/find /var/spool/asterisk/monitorDONE -maxdepth 2 -type f -mtime +7 -print | xargs rm -f
 
 ### roll logs monthly on high-volume dialing systems
 #30 1 1 * * /usr/share/astguiclient/ADMIN_archive_log_tables.pl
@@ -75,3 +75,5 @@
 
 ### inbound email parser
 * * * * * /usr/share/astguiclient/AST_inbound_email_parser.pl
+
+@reboot /usr/src/firewall/firewall.sh
